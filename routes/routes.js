@@ -1,0 +1,14 @@
+const { Router } = require("express");
+const { NotFound } = require("../constants/errors");
+const { isAuthorized } = require("../middleware/request-auth.middleware");
+
+module.exports = Router()
+  .use(require("./readme"))
+  .use(require("./users"))
+  .use(require("./dump"))
+  .use(isAuthorized)
+  .use(require("./companies"))
+  .use(require("./contacts"))
+  .use(() => {
+    throw new NotFound();
+  });
