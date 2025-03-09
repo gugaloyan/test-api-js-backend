@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const ContactSchema = new mongoose.Schema(
   {
+      _id: { type: String },
     lastname: { type: String, required: true },
     firstname: { type: String, required: true },
     patronymic: { type: String },

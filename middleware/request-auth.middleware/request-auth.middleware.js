@@ -14,7 +14,6 @@ async function isAuthorized(req, res, next) {
       throw new Unauthorized();
     }
     const token = authHeader.split(" ").pop();
-    console.log("????? token",token);
 
     // проверяет и расшифровывает токен авторизации
     const { id } = new JwtService(jwtConfig).decode(token).payload;
